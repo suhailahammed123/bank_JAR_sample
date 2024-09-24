@@ -1,0 +1,35 @@
+image: maven:3.9.9-eclipse-temurin-17  # Use Maven 3.9.9 with JDK 17
+
+stages:
+  - build
+  - test
+  - package
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository  # Cache Maven dependencies to speed up builds
+
+before_script:
+  - export JAVA_HOME=/usr/local/openjdk-17
+  - mvn --version    # Check Maven version
+
+build-job:
+  stage: build
+  script:
+    - mvn compile    # Compile the Java project
+
+test-job:
+  stage: test
+  script:
+    - mvn test       # Run unit tests
+
+package-job:
+  stage: package
+  script:
+    - mvn package    # Package the project into a JAR file
+  artifacts:
+    paths:
+      - target/*.jar   # Save the JAR file as an artifact for later use
