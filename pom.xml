@@ -15,7 +15,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <plugins>
+<!--   <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
@@ -27,5 +27,5 @@
                 </archive>
             </configuration>
         </plugin>
-    </plugins>
+    </plugins> -->
 </project>
