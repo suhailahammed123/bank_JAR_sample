@@ -9,7 +9,7 @@ pipeline {
         uptime
         whoami
         pwd
-        echo ${env.HOSTNAME}
+        hostname
         """
       }
     }
