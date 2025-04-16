@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    label 'java_slave_node'
+  }
 
   stages {
     stage("print server info") {
